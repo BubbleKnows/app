@@ -1,0 +1,118 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #383838;
+}
+
+.navbar {
+  box-shadow: 0 1px 10px #000;
+}
+
+.navbar .container {
+  width: 100%;
+  padding: 0.5em 1.1em 0;
+}
+
+.navbar h1 {
+  font-weight: normal;
+  color: silver;
+  float: left;
+  font-size: 1.7em;
+  line-height: 32px;
+  margin: 0;
+  background-image: url('../img/icon.png');
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  padding: 0 0 0 42px;
+  text-shadow: 0 1px 1px black;
+}
+
+.navbar form {
+  margin: 0 0 0.5em;
+}
+
+.navbar .btn,
+.navbar .bootstrap-select {
+  margin: 0;
+}
+
+.btn-inverse {
+  border-bottom: 1px solid #111;
+}
+
+fieldset {
+  border: none;
+  width: 650px;
+  margin: 0 0 0 auto;
+}
+
+fieldset span.inline-text {
+  margin: 0 0.5em 0.3em;
+  font-size: 1.1em;
+  text-shadow: 0 1px 1px black;
+}
+
+fieldset input[type=text] {
+  margin: 0.2em 0.5em;
+}
+
+#output {
+  margin: 1em;
+}
+
+#message {
+  font-size: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: #d10;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #d10;
+}
+
+.search-pair {
+  display: inline;
+  margin: 0 0 0 102px;
+}
+
+.search-pair:nth-of-type(1) {
+  margin: 0;
+}
+
+.player {
+  border: 0;
+  height: 230px;
+  width: 409px;
+  margin: 5px;
+}
+
+#movies-list {
+  margin-left: 0;
+}
+
+.movie {
+  display: inline-block;
+  margin: 0.5em;
+  border-color: #222;
+  box-shadow: 0 1px 5px black;
+  background: #222;
+  width: 420px;
+  font-size: 0.9em;
+  vertical-align: top;
+}
+
+.movie h3 {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin: 0 0.5em 0.5em;
+}
+
+.movie p {
+  margin: 0 0.5em 0.5em;
+  text-align: justify;
+}
