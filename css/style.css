@@ -197,19 +197,16 @@ a {
 /** Widget styles             **/
 /** ************************* **/
 .fr_cecilu {
-  display: inline-block;
-  width: 22.223908216136195%;
+  display: block;
+  width: 24.223908%;
   vertical-align: top;
-  margin-top: 1.5625em;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 39.15618060695781%;
-  background-image: url(../images/thumbnail/bubble-black-md.png_300x300.png);
-  min-height: 18.75em
+  background: url(../img/bubble-black-md.png_300x300.png) no-repeat center;
+  min-height: 18.75em;
+  opacity: 0.55;
+  margin: 33px auto 0;
 }
 .fr_lewetu {
   display: inline-block;
-  width: 41.154700222057734%;
   font-family: Arvo;
   font-size: 3.2em;
   line-height: 2.25em;
@@ -228,7 +225,7 @@ a {
 }
 .fr_kubece {
   display: inline-block;
-  width: 39.452257586972614%;
+  width: 100%;
   vertical-align: top;
   margin-top: .5625em;
   margin-right: 0;
@@ -254,8 +251,12 @@ a {
   margin-right: 0;
   margin-bottom: 0;
   margin-left: 2.071382309400444%;
-  background-image: url(../images/thumbnail/mag_5.png_45x53.png);
-  min-height: 3.25em
+  background-image: url(../img/mag_5.png_45x53.png);
+  min-height: 3.25em;
+  border: 0;
+}
+#homeSubmit{
+	color: #1F3549;
 }
 
 /** ******************************** **/

@@ -57,16 +57,15 @@
         </div>
       </div><!--
    --><div class="fr-widget fr-html fr-wf fr_kubece ">
-        <form>
+        <form action="index3.html" method="get">
           <font face="Microsoft YaHei" size="5" color="#f9fbfb">What do you want today:</font>
-          <input type="text" name="userInput">
+          <input id="homeSubmit" type="text" name="userInput" value="cat">
+			<input class="fr-widget fr-img fr_dijive" type="submit" value="">
         </form>
       </div><!--
    -->
-<a href="result\index.html">
-   <div class="fr-widget fr-img fr_dijive "></div>
-    </div>
 
+<br/><br/><br/><br/><br/>
 
 
   </div>
@@ -81,7 +80,8 @@
     <div class="fr-bottom-em-spacer"></div>
     <script type="text/javascript">
       $(function() {
-        $(window).resize(function() {
+		$("#homeSubmit").suggest();
+       // $(window).resize(function() {
           var $footer = $('.fr-copyright-footer');
           var $ref = $(document.getElementsByClassName('b-content')[0] || document.body)
           $footer.removeClass('fixed');
