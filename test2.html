@@ -1,0 +1,202 @@
+<html>  
+  <head>
+    <title>Freebase Suggest Example - Find topics of type /film/director (Movie Director)</title>
+    
+    <link href="http://www.gstatic.com/freebase/suggest/4_2/suggest.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.gstatic.com/freebase/suggest/4_2/suggest.min.js"></script>
+    
+        <style>
+      body {
+        font-family: Arial;
+      }
+      h1 {
+        font-size: 1.7em;
+      }
+      pre.prettyprint {
+        padding: 16px;
+        background: #eee;
+        min-width: 600px;
+        display: inline-block;
+      margin: 0;
+      }
+      #myinput {
+          padding: 0.3em 0.4em;
+      font-size: 1.1em;
+      margin: 0 0 20px;
+      width: 600px;
+      color: #36e;
+      border: 1px solid #ccc;
+      border-radius: 0.2em;
+    }
+      #myfilter {
+          padding: 0.3em 0.4em;
+      font-size: 1.1em;
+      margin: 0 0 20px;
+      width: 600px;
+      color: #36e;
+      border: 1px solid #ccc;
+      border-radius: 0.2em;
+    }
+        #related {
+        display: none;
+        }
+    #related ul {
+      padding: 0;
+      list-style-type: none;
+    }
+    #related li {
+      display: inline-block;
+      padding: 0 0 0 20px;
+      margin: 0.2em 0;
+      background-repeat: no-repeat;
+    }
+    .related_entity {
+      width: 80px;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 0.8em;
+      border: 1px solid #fff;
+      border-radius: 0.2em;
+      padding: 0.2em;
+    }
+    .related_entity:hover {
+      border-color: #ddd;
+    }
+    .related_entity img {
+      margin: 0 0 0.5em 0;
+    }
+    .related_entity a {
+      text-decoration: none;
+      color: black;
+    }
+    #topic_info {
+        display: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="body">
+      <p><strong>Collection filter:</strong></p>
+      <input id="myinput" type="text" value=""><br>
+      <input id="myfilter" type="text" value="">
+      <script type="text/javascript">
+
+  	$(function(){
+
+	   var baseSearch = function(searchVal, searchFilter) {
+          var search_service = 'https://www.googleapis.com/freebase/v1/search';
+          var params = {
+            'query': searchVal,
+            'filter': searchFilter,
+            'output': '(description)',
+            'limit': 10
+          };
+          $.getJSON(search_service + '?callback=?', params, function(response) {
+            $("#related ul").empty();
+              for (var i=0; i<response['result'].length; i++) {
+                var related_entity = response['result'][i];
+                var list_item = $('<li class="related_li"></li>');
+                var container = $('<div class="related_entity"></div>');
+                list_item.append(container);
+                container.append($('<img src="https://usercontent.googleapis.com/freebase/v1/image' + related_entity['mid'] + '">'));
+                container.append($('<br/><span ' + related_entity['mid'] + ' target="_blank">' + related_entity['name'] + '</span>'));
+                $("#related ul").append(list_item);
+              }
+              $("#related").show();
+
+          var service_url = 'https://www.googleapis.com/freebase/v1/topic';
+          var params = {};
+
+          var topicAbstract = function(topic_mid){
+            $.getJSON(service_url + topic_mid + '?callback=?', params, function(topic) {
+
+
+              $("#topic_info").empty();
+              //console.log(topic.property['/type/object/name'].values[0].text);
+              $("#topic_info").append($('<span>' + topic.property['/type/object/name'].values[0].text + '</span><br/>'));
+              $("#topic_info").append($('<span>' + topic.property['/common/topic/description'].values[0].value + '</span><br/>'));
+              if(typeof {text:topic.property['/common/topic/notable_properties']}.text != "undefined"){
+                var numNotableProperties = {text:topic.property['/common/topic/notable_properties'].count}.text;
+                var lastId = "";
+                for (var i=0; i < numNotableProperties; i++) {
+                  var id = {text:topic.property['/common/topic/notable_properties'].values[i].id}.text;
+                  var val = {text:topic.property[id].values[0].text};
+                  if (id != lastId) {
+                    $("#topic_info").append($('<span>' + topic.property['/common/topic/notable_properties'].values[i].text + ' : ' + val.text + '</span><br/>'));              
+                  }
+                  lastId = id;
+                };                
+              };
+              $("#topic_info").show();
+
+/*
+              //$('<div>',{text:topic.property['/type/object/name'].values[0].text}).appendTo(document.body);
+              //$('<div>',{text:topic.property['/common/topic/description'].values[0].value}).appendTo(document.body);
+              //$('<div>',{text:topic.id}).appendTo(document.body);
+              if(typeof {text:topic.property['/common/topic/notable_properties']}.text != "undefined"){
+                console.log({text:topic.property['/common/topic/notable_properties']});
+                var numNotableProperties = {text:topic.property['/common/topic/notable_properties'].count}.text;
+                console.log('count = '+numNotableProperties);
+                var lastId = "";
+                for (var i=0; i < numNotableProperties; i++) {
+                  var id = {text:topic.property['/common/topic/notable_properties'].values[i].id}.text;
+                  console.log('id = '+id);
+                  var dash = ' - ';
+                  var val = {text:topic.property[id].values[0].text};
+                  if (id != lastId) {
+                    $('<span>',{text:topic.property['/common/topic/notable_properties'].values[i].text})
+                    .attr('id','property')
+                    .appendTo(document.body);
+
+                    $('<span>').text('inner text').appendTo(document.body);
+                    $('<tab>').appendTo(document.body);
+                    $('<span>',val).appendTo(document.body);
+                  }
+                  lastId = id;
+                  $('<br>').appendTo(document.body);
+                };
+              };
+              */
+            });
+          };
+
+          topicAbstract(response['result'][0]['mid']);
+
+          });
+
+
+
+                  
+
+	     };
+
+  
+  $("#related li").live('click',function(){
+    //console.log('click search!');
+    //console.log($(this).text()); 
+    baseSearch($(this).text(),$('#myfilter').val());
+  });
+
+	$("#myinput").change(function(){
+    baseSearch($('#myinput').val(),$('#myfilter').val());
+  });
+  
+  $("#myfilter").val("(all type:/common/topic)").change();
+  //$("#myinput").val("cat").change();
+
+    //console.log('baseSearch is called!');
+    //baseSearch('cat');
+
+});
+
+      </script>
+      <div id="related">
+	    <p><strong>Related Entities:</strong></p>
+      <ul></ul>
+      </div>
+      <div id="topic_info">
+      </div>
+    </div>
+  
+</body></html>
