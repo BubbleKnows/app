@@ -8,7 +8,7 @@
             <![endif]-->
 
   <link rel="stylesheet" href="css/base.css">
-
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 
   <script type="text/javascript" src="vendor/bower/jquery/jquery.js"></script>
@@ -71,6 +71,7 @@
         <style>
       body {
         font-family: Arial;
+		  background: #00c1c1;
       } 
       h1 {
         font-size: 1.7em;
@@ -84,7 +85,7 @@
       }
       #myinput {
       padding: 0.3em 0.4em;
-      font-size: 1.1em;
+      font-size: 3em;
       margin: 0 0 20px;
       width: 100%;
       color: #36e;
@@ -133,7 +134,16 @@
     }
     .related_entity img {
       margin: 0 0 0.5em 0;
+	  position: absolute;
+		border-radius: 50%;
+		margin: -13px 0 0 -87px;
+		max-width: 173px;
+		opacity: 0.8;
+		transition: 1s;
     }
+	.related_entity img:hover{
+		opacity: 1
+	}
     .related_entity a {
       text-decoration: none;
       color: black;

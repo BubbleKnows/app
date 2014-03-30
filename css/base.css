@@ -753,5 +753,16 @@ a {
   border-radius: 150px;
   -webkit-border-radius: 150px;
   -moz-border-radius: 150px;
-  background: url(http://icons.iconarchive.com/icons/atti12/tv-series-folder/256/How-I-Met-Your-Mother-icon.png) no-repeat;
   }
+
+.bubTitle{
+	transition: 1s;
+	opacity: 0.9;
+	color: #fff;
+	position: relative;
+	font-size: 21px;
+	font-weight: bold;
+}
+.bubTitle:hover{
+	opacity: 1;
+}
