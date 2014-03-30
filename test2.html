@@ -52,7 +52,7 @@
       background-repeat: no-repeat;
     }
     .related_entity {
-      width: 80px;
+      width: 210px;
       display: inline-block;
       vertical-align: top;
       font-size: 0.8em;
@@ -81,16 +81,18 @@
       <input id="myinput" type="text" value=""><br>
       <input id="myfilter" type="text" value="">
       <script type="text/javascript">
+      var API_KEY = "AIzaSyDQaBAQbks8tBzQVIC2ezRUnBaWqilc2ho";
 
   	$(function(){
 
 	   var baseSearch = function(searchVal, searchFilter) {
           var search_service = 'https://www.googleapis.com/freebase/v1/search';
           var params = {
+            'key': API_KEY,
             'query': searchVal,
             'filter': searchFilter,
             'output': '(description)',
-            'limit': 10
+            'limit': 6
           };
           $.getJSON(search_service + '?callback=?', params, function(response) {
             $("#related ul").empty();
@@ -99,19 +101,17 @@
                 var list_item = $('<li class="related_li"></li>');
                 var container = $('<div class="related_entity"></div>');
                 list_item.append(container);
-                container.append($('<img src="https://usercontent.googleapis.com/freebase/v1/image' + related_entity['mid'] + '">'));
+                container.append($('<img src="https://usercontent.googleapis.com/freebase/v1/image' + related_entity['mid'] + '?maxwidth=200&maxheight=150">'));
                 container.append($('<br/><span ' + related_entity['mid'] + ' target="_blank">' + related_entity['name'] + '</span>'));
                 $("#related ul").append(list_item);
               }
               $("#related").show();
 
           var service_url = 'https://www.googleapis.com/freebase/v1/topic';
-          var params = {};
+          var params = {key: API_KEY};
 
           var topicAbstract = function(topic_mid){
             $.getJSON(service_url + topic_mid + '?callback=?', params, function(topic) {
-
-
               $("#topic_info").empty();
               //console.log(topic.property['/type/object/name'].values[0].text);
               $("#topic_info").append($('<span>' + topic.property['/type/object/name'].values[0].text + '</span><br/>'));
@@ -129,35 +129,6 @@
                 };                
               };
               $("#topic_info").show();
-
-/*
-              //$('<div>',{text:topic.property['/type/object/name'].values[0].text}).appendTo(document.body);
-              //$('<div>',{text:topic.property['/common/topic/description'].values[0].value}).appendTo(document.body);
-              //$('<div>',{text:topic.id}).appendTo(document.body);
-              if(typeof {text:topic.property['/common/topic/notable_properties']}.text != "undefined"){
-                console.log({text:topic.property['/common/topic/notable_properties']});
-                var numNotableProperties = {text:topic.property['/common/topic/notable_properties'].count}.text;
-                console.log('count = '+numNotableProperties);
-                var lastId = "";
-                for (var i=0; i < numNotableProperties; i++) {
-                  var id = {text:topic.property['/common/topic/notable_properties'].values[i].id}.text;
-                  console.log('id = '+id);
-                  var dash = ' - ';
-                  var val = {text:topic.property[id].values[0].text};
-                  if (id != lastId) {
-                    $('<span>',{text:topic.property['/common/topic/notable_properties'].values[i].text})
-                    .attr('id','property')
-                    .appendTo(document.body);
-
-                    $('<span>').text('inner text').appendTo(document.body);
-                    $('<tab>').appendTo(document.body);
-                    $('<span>',val).appendTo(document.body);
-                  }
-                  lastId = id;
-                  $('<br>').appendTo(document.body);
-                };
-              };
-              */
             });
           };
 
@@ -175,6 +146,7 @@
   $("#related li").live('click',function(){
     //console.log('click search!');
     //console.log($(this).text()); 
+    $("#myinput").val($(this).text()).change();
     baseSearch($(this).text(),$('#myfilter').val());
   });
 
