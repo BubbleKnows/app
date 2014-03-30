@@ -7,9 +7,9 @@
                     <script type="text/javascript" src="vendor/bower/html5shiv/dist/html5shiv.js"></script>
             <![endif]-->
 
-  <link rel="stylesheet" href="css/base.css">
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/base.css">
 
   <script type="text/javascript" src="vendor/bower/jquery/jquery.js"></script>
   <script type="text/javascript" src="js/backend/jquery-extends/live-patch.js"></script>
@@ -21,7 +21,6 @@
     border-radius:40px;
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
-    background: url(http://imworld.aufeminin.com/story/20130514/cristin-milioti-la-fameuse-mother-29285_s96cx635cy342.jpg) no-repeat;
     box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
@@ -68,9 +67,9 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://www.gstatic.com/freebase/suggest/4_2/suggest.min.js"></script>
     
-        <style>
+      <style>
       body {
-        font-family: Arial;
+        font-family: "Arvo", serif;
 		  background: #00c1c1;
       } 
       h1 {
@@ -153,6 +152,11 @@
       margin: -23px 0 0 13px;
       color: #fafafa;
     }
+	.notable-name{
+		position: relative;
+		z-index: 2;
+		color: #fafafa;
+	}
     </style>
 
 
@@ -233,7 +237,7 @@
                
 
                 if (typeof {text:related_entity['notable']}.text != "undefined"){
-                container.append($('<br/><span>' + related_entity['notable']['name'] + '</span>'));
+                container.append($('<br/><span class="notable-name">' + related_entity['notable']['name'] + '</span>'));
                 }
 
                 list_item.append(container);
@@ -256,8 +260,8 @@
             $.getJSON(service_url + topic_mid + '?callback=?', params, function(topic) {
               $("#topic_info").empty();
               //console.log(topic.property['/type/object/name'].values[0].text);
-              $("#topic_info").append($('<span class="related_name">' + topic.property['/type/object/name'].values[0].text + '</span><br/>'));
-              $("#topic_info").append($('<span>' + topic.property['/common/topic/description'].values[0].value + '</span><br/>'));
+             // $("#topic_info").append($('<span class="related_name">' + topic.property['/type/object/name'].values[0].text + '</span><br/>'));
+              $("#topic_info").append($('<span class="topic-description">' + topic.property['/common/topic/description'].values[0].value + '</span><br/>'));
               if(typeof {text:topic.property['/common/topic/notable_properties']}.text != "undefined"){
                 var numNotableProperties = {text:topic.property['/common/topic/notable_properties'].count}.text;
                 var lastId = "";
@@ -265,7 +269,7 @@
                   var id = {text:topic.property['/common/topic/notable_properties'].values[i].id}.text;
                   var val = {text:topic.property[id].values[0].text};
                   if (id != lastId) {
-                    $("#topic_info").append($('<span>' + topic.property['/common/topic/notable_properties'].values[i].text + ' : ' + val.text + '</span><br/>'));              
+                    $("#topic_info").append($('<span class="noteable-prop">' + topic.property['/common/topic/notable_properties'].values[i].text + ' : ' + val.text + '</span><br/>'));              
                   }
                   lastId = id;
                 };                
