@@ -1,0 +1,343 @@
+/** ************************* **/
+/** Froont widget base styles **/
+/** ************************* **/
+.fr-widget h1,
+.fr-widget h2,
+.fr-widget h3,
+.fr-widget h4,
+.fr-widget h5,
+.fr-widget h6,
+.fr-widget p {
+  margin: 0;
+}
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "PT Sans", Tahoma, Verdana, sans-serif;
+}
+body {
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+input: focus, textarea: focus {
+  outline: none;
+}
+.b-content {
+  font-size: 1.6em;
+  padding-top: 0.02px;
+}
+.b-content.loading {
+  opacity: 0;
+}
+.b-content: after {
+  content: ".";
+  display: none;
+  clear: both;
+  line-height: 0;
+  height: 0;
+}
+a {
+  color: #000;
+  text-decoration: underline;
+}
+.fr-wf {
+  -webkit-transition: opacity .1s linear;
+  -moz-transition: opacity .1s linear;
+  -o-transition: opacity .1s linear;
+  transition: opacity .1s linear;
+  word-break: break-word;
+}
+.wf-loading .fr-wf {
+  opacity: 0 !important;
+}
+.wf-inactive .fr-wf,
+.wf-active .fr-wf {
+  opacity: 1;
+}
+.fr-container: after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.fr-widget {
+  display: block;
+}
+.fr-text * {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-decoration: inherit;
+}
+.fr-text i {
+  font-style: italic;
+}
+.fr-text u {
+  text-decoration: underline;
+}
+.fr-text del,
+.fr-text s,
+.fr-text strike {
+  text-decoration: line-through;
+}
+.fr-text b,
+.fr-text strong,
+.fr-text h1,
+.fr-text h2,
+.fr-text h3,
+.fr-text h4,
+.fr-text h5,
+.fr-text h6 {
+  font-weight: bold;
+}
+.fr-img {
+  line-height: 0;
+}
+.fr-img img {
+  width: 100%;
+  max-width: 100%;
+}
+.fr-svg svg {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+.fr-svg-inner svg {
+  position: absolute;
+}
+/** clear content around grid widget container, because it contains a lot of floated elements **/
+
+.fr-grid: before, .fr-grid: after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.fr-grid > .fr-widget {
+  float: left;
+}
+.fr-video-inner {
+  position: relative;
+}
+.fr-video-inner iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.fr_hover-animation {
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: background, color, border-radius;
+  -moz-transition-property: background, color, border-radius;
+  -o-transition-property: background, color, border-radius;
+  transition-property: background, color, border-radius;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.fr-video-inner p {
+  display: none;
+}
+.fr-copyright-footer {
+  bottom: 0;
+  width: 100%;
+}
+.fr-copyright-footer.fixed {
+  position: fixed;
+  left: 0;
+}
+.fr-copyright-footer > .fr-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #242424;
+}
+.fr-copyright-footer .fr-made-with-froont {
+  width: auto;
+  font-family: Arial;
+  font-size: .6em;
+  line-height: 1.6em;
+  text-align: center;
+  letter-spacing: .25em;
+  margin: 0 auto;
+  padding: 2em 0 1em 0;
+  color: #979797;
+}
+.fr-copyright-footer .fr-made-with-froont .fr-text {
+  min-width: 100%;
+}
+.fr-copyright-footer .fr-made-with-froont .fr-text .heart {
+  font-size: 2.1em;
+}
+.fr-copyright-footer .fr-bottom-em-spacer {
+  height: 1em;
+  background: #242424;
+}
+
+/** ******************************** **/
+/** End of Froont widget base styles **/
+/** ******************************** **/
+
+/** ************************* **/
+/** Widget styles             **/
+/** ************************* **/
+.fr_blue-bar-container {
+  display: block;
+  margin-top: -0.0009765625em;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  padding-top: 1px;
+  background: #00c1c1;
+  min-height: 58.25em
+}
+.fr_main-container {
+  display: block;
+  margin-top: -0.0634765625em;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  background: #00c1c1;
+  min-height: 5.9375em
+}
+.fr_title {
+  display: block;
+  width: auto;
+  font-family: Della Respira;
+  font-size: 3.45em;
+  text-align: center;
+  margin-top: -97px;
+  margin-right: auto;
+  margin-left: auto;
+  color: #fbf9f9
+}
+.fr_title .fr-text {
+  min-width: 100%
+}
+.fr_inputbar {
+  float: none;
+  display: inline-block;
+  width: 35.529237601776465%;
+  vertical-align: top;
+  margin-top: 4.376953125em;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: 29.607698001480387%;
+  min-height: 2.25em
+}
+.fr_mag {
+  display: inline-block;
+  width: 3.4048852701702446%;
+  vertical-align: top;
+  margin-top: -2.5625em;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 66.02516654330127%;
+  background-image: url(../images/thumbnail/124774-matte-white-square-icon-business-magnifying-glass-ps_1.png_48x47.png);
+  min-height: 2.875em
+}
+.fr_centercircle {
+  float: none;
+  display: inline-block;
+  width: 22.723908216136195%;
+  vertical-align: top;
+  margin-top: .5947265625em;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: 3.3308660251665434%;
+  min-height: 16.25em;
+  border-radius: 180px;
+  background-color: red;
+}
+.fr_garoba {
+  display: inline-block;
+  width: 6.5136935603256845%;
+  vertical-align: top;
+  margin-top: 11.0009765625em;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 8.291311991117691%;
+  min-height: 5.125em
+}
+.fr_redono {
+  display: inline-block;
+  width: 6.88378978534419%;
+  vertical-align: top;
+  margin-top: 17.5634765625em;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: -3.774981495188749%;
+  min-height: 5.3125em
+}
+.fr_jibija {
+  display: inline-block;
+  width: 6.365655070318282%;
+  vertical-align: top;
+  margin-top: 3.8134765625em;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 26.646928201332347%;
+  min-height: 5em
+}
+.fr_hasoje {
+  display: inline-block;
+  width: 6.365655070318282%;
+  vertical-align: top;
+  margin-top: 6.3134765625em;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 17.912657290895634%;
+  min-height: 5.1875em
+}
+.fr_bitojo {
+  display: inline-block;
+  width: 6.365655070318282%;
+  vertical-align: top;
+  margin-top: 4.3759765625em;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 42.33900814211695%;
+  min-height: 5em
+}
+.fr_welehu {
+  display: block;
+  width: 6.5136935603256845%;
+  vertical-align: top;
+  margin-top: -0.4365234375em;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 52.70170244263509%;
+  min-height: 5.125em
+}
+@media screen and (max-width: 768px) {
+  .fr_centercircle {
+    display: inline-block;
+    vertical-align: top
+  }
+}
+@media screen and (max-width: 768px) {
+  .fr_garoba {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 17.926025390625%
+  }
+}
+
+/** ******************************** **/
+/** End of widget styles             **/
+/** ******************************** **/
