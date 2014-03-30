@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--[if lt IE 9]>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                    <script type="text/javascript" src="vendor/bower/html5shiv/dist/html5shiv.js"></script>
+            <![endif]-->
+
+  <link rel="stylesheet" href="css/base.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="text/javascript" src="vendor/bower/jquery/jquery.js"></script>
+  <script type="text/javascript" src="js/backend/jquery-extends/live-patch.js"></script>
+
+  <style type="text/css">
+  .circle{
+    width: 80px;
+    height: 80px;
+    border-radius:40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    background: url(http://imworld.aufeminin.com/story/20130514/cristin-milioti-la-fameuse-mother-29285_s96cx635cy342.jpg) no-repeat;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  }
+  </style>
+
+  <script type="text/javascript">
+    var fonts = {
+      "Della Respira": {
+        "source": "google",
+        "variants": [
+          "regular"
+        ],
+        "subsets": [
+          "latin"
+        ],
+        "family": "Della Respira"
+      }
+    };
+  </script>
+
+  <script type="text/javascript" src="vendor/js/webfont.js"></script>
+  <script type="text/javascript" src="js/fontloader.js"></script>
+
+
+  <!-- Replace code below with your typekit kit's embed code -->
+  <script type="text/javascript" src='https://use.typekit.net/ik/thKrHlAqk92Qhf4AO7ka30Otr8viCn3AVeRmE-v_T2MfeGXgf5aoHsJdFR6awDbUWa8ujAoGjAo1OW8ydcSlwRqUwYT8eqFcScNzd1b0jhNlOYs8Sab0Z14zdhoXOcFzdPUCdhFydfuqZWj0Z14zdhoXOcFzdP3UwRS0wft3ORICdeNRjAUGdaFXJyTyZY4TjAo0jPu8pYs8dcs8ZfuqZAuTjcNCZfG4fJCeIMMjgKMf.js'></script>
+  <script type="text/javascript">
+    try {
+      Typekit.load();
+    } catch (e) {}
+  </script>
+  <!-- End of typekit code -->
+
+
+
+  <meta http-equiv="content-language" content="en">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+
+
+    <link href="http://www.gstatic.com/freebase/suggest/4_2/suggest.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.gstatic.com/freebase/suggest/4_2/suggest.min.js"></script>
+    
+        <style>
+      body {
+        font-family: Arial;
+      } 
+      h1 {
+        font-size: 1.7em;
+      }
+      pre.prettyprint {
+        padding: 16px;
+        background: #eee;
+        min-width: 600px;
+        display: inline-block;
+      margin: 0;
+      }
+      #myinput {
+      padding: 0.3em 0.4em;
+      font-size: 1.1em;
+      margin: 0 0 20px;
+      width: 100%;
+      color: #36e;
+      border: 1px solid #ccc;
+      border-radius: 0.2em;
+    }
+      #myfilter {
+          padding: 0.3em 0.4em;
+      font-size: 1.1em;
+      margin: 0 0 20px;
+      width: 600px;
+      color: #36e;
+      border: 1px solid #ccc;
+      border-radius: 0.2em;
+    }
+        #related {
+        display: none;
+        }
+    #related ul {
+      padding: 0;
+      list-style-type: none;
+    }
+    #related li {
+      display: block;
+      padding: 0 0 0 20px;
+      margin: 0.2em 0;
+      background-repeat: no-repeat;
+      position: absolute;
+    }
+    .related_entity {
+      cursor: pointer;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px; 
+      display: block;
+      vertical-align: top;
+      font-size: 0.8em;
+      border: 1px solid rgba(40, 121, 136, 0.77);
+      padding: 2em;
+      background: rgba(40, 121, 136, 0.58);
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    }
+    .related_entity:hover {
+      border:3px solid rgba(117, 117, 187, 0.22);
+    }
+    .related_entity img {
+      margin: 0 0 0.5em 0;
+    }
+    .related_entity a {
+      text-decoration: none;
+      color: black;
+    }
+    #topic_info{
+      width: 21%;
+      margin: -23px 0 0 13px;
+      color: #fafafa;
+    }
+    </style>
+
+
+</head>
+
+<body>
+  <div id="body" class="b-content">
+    <div class="fr-widget fr-container fr_blue-bar-container ">
+      <div class="fr-widget fr-container fr_main-container ">
+      </div><!--
+   --><div class="fr-widget fr-text fr-wf fr_title ">
+        <input id="myinput" type="text" value="">
+      </div>
+
+    <div id="related">
+      <ul></ul>
+    </div>
+         <div id="topic_info">
+      </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="fr-copyright-footer fixed">
+    <div class="fr-widget fr-container">
+      <div class="fr-widget fr-text fr-wf fr-made-with-froont">
+        <a href="//bubbleknows.com" class="fr-text" target="_blank">
+        Made by BubbleKnows Team @ HackPrinceton
+      </a>
+      </div>
+    </div>
+    <div class="fr-bottom-em-spacer"></div>
+    <script type="text/javascript">
+      $(function() {
+        $(window).resize(function() {
+          var $footer = $('.fr-copyright-footer');
+          var $ref = $(document.getElementsByClassName('b-content')[0] || document.body)
+          $footer.removeClass('fixed');
+          if ($ref.height() + $footer.height() < window.innerHeight) {
+            $footer.addClass('fixed')
+          };
+        }).trigger('resize');
+      });
+    </script>
+  </div>
+  <div id="footer-assets">
+    <!--[if lt IE 9]>
+                    <script type="text/javascript" src="vendor/bower/respond/respond.src.js"></script>
+                    <script type="text/javascript" src="vendor/bower/raphael/raphael.js"></script>
+                    <script type="text/javascript" src="vendor/bower/raphael-svg-import-classic/raphael-svg-import.js"></script>
+                    <script type="text/javascript" src="js/raphaelize.js"></script>
+            <![endif]-->
+  </div>
+
+
+ <script type="text/javascript">
+    var API_KEY = "AIzaSyDQaBAQbks8tBzQVIC2ezRUnBaWqilc2ho";
+    $(function(){
+
+     var baseSearch = function(searchVal, searchFilter) {
+          var search_service = 'https://www.googleapis.com/freebase/v1/search';
+          var params = {
+            'key': API_KEY,
+            'query': searchVal,
+            'filter': searchFilter,
+            'output': '(description)',
+            'limit': 9
+          };
+          $.getJSON(search_service + '?callback=?', params, function(response) {
+        $("#related ul").empty();
+              for (var i=0; i<response['result'].length; i++) {
+                var related_entity = response['result'][i];
+                var list_item = $('<li class="related_li"></li>');
+                var container = $('<div class="related_entity"></div>');
+                container.append($('<img class="bubImg" name="'+ related_entity['name'] + '" src="https://usercontent.googleapis.com/freebase/v1/image' + related_entity['mid'] + '?maxwidth=244&maxheight=177">'));
+                container.append($('<br/><span class="bubTitle" target="_blank">' + related_entity['name'] + '</span>'));
+               
+
+                if (typeof {text:related_entity['notable']}.text != "undefined"){
+                container.append($('<br/><span>' + related_entity['notable']['name'] + '</span>'));
+                }
+
+                list_item.append(container);
+                 var l = response['result'].length-1;
+   
+              $("#related ul").append(list_item);
+              $("#related li")[0].style.left = "40%";
+              $("#related li")[0].style.top = "35%";
+              $("#related li")[i].style.left = (40 - 20*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+              $("#related li")[i].style.top = (35 + 33*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+              }
+
+              $("#related").show();
+
+
+          var service_url = 'https://www.googleapis.com/freebase/v1/topic';
+          var params = {key: API_KEY};
+
+           var topicAbstract = function(topic_mid){
+            $.getJSON(service_url + topic_mid + '?callback=?', params, function(topic) {
+              $("#topic_info").empty();
+              //console.log(topic.property['/type/object/name'].values[0].text);
+              $("#topic_info").append($('<span class="related_name">' + topic.property['/type/object/name'].values[0].text + '</span><br/>'));
+              $("#topic_info").append($('<span>' + topic.property['/common/topic/description'].values[0].value + '</span><br/>'));
+              if(typeof {text:topic.property['/common/topic/notable_properties']}.text != "undefined"){
+                var numNotableProperties = {text:topic.property['/common/topic/notable_properties'].count}.text;
+                var lastId = "";
+                for (var i=0; i < numNotableProperties; i++) {
+                  var id = {text:topic.property['/common/topic/notable_properties'].values[i].id}.text;
+                  var val = {text:topic.property[id].values[0].text};
+                  if (id != lastId) {
+                    $("#topic_info").append($('<span>' + topic.property['/common/topic/notable_properties'].values[i].text + ' : ' + val.text + '</span><br/>'));              
+                  }
+                  lastId = id;
+                };                
+              };
+              $("#topic_info").show();
+            });
+          };
+
+          topicAbstract(response['result'][0]['mid']);
+
+          });
+       };
+  
+   
+$("#myinput").suggest();
+
+  $("#related img").live('click',function(){
+    $("#myinput").val($(this).attr('name')).change();
+    baseSearch($(this).attr('name'),$('#myfilter').val());
+  });
+  
+  $("#related span").live('click',function(){
+    $("#myinput").val($(this).text()).change();
+    baseSearch($(this).text(),$('#myfilter').val());
+  });
+  
+  $("#myinput").keypress(function(event) {
+    if (event.which == 13) {
+      baseSearch($('#myinput').val(),$('#myfilter').val());
+    }
+  });
+
+  $("#myfilter").val("(all type:/common/topic)").change();
+// hgjhfjfjhfj
+
+  
+$("#myinput").val($("#userInput").val()).change();
+baseSearch($('#userInput').val());
+
+});
+
+
+      </script>
+
+</body>
+
+</html>

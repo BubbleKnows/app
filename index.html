@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <!--[if lt IE 9]>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                    <script type="text/javascript" src="vendor/bower/html5shiv/dist/html5shiv.js"></script>
+            <![endif]-->
+
+  <link rel="stylesheet" href="css/base.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="text/javascript" src="vendor/bower/jquery/jquery.js"></script>
+  <script type="text/javascript" src="js/backend/jquery-extends/live-patch.js"></script>
+
+  <script type="text/javascript">
+    var fonts = {
+      "Arvo": {
+        "source": "google",
+        "variants": [
+          "700",
+          "700italic",
+          "italic",
+          "regular"
+        ],
+        "subsets": [
+          "latin"
+        ],
+        "family": "Arvo"
+      }
+    };
+  </script>
+
+  <script type="text/javascript" src="vendor/js/webfont.js"></script>
+  <script type="text/javascript" src="js/fontloader.js"></script>
+
+
+
+  <meta http-equiv="content-language" content="en">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+
+
+  <div class="b-content">
+    <div class="fr-widget fr-container fr_tuguvi ">
+      <div class="fr-widget fr-img fr_cecilu "></div><!--
+   --><div class="fr-widget fr-text fr-wf fr_lewetu ">
+        <div class="fr-text">Find everything using&nbsp;
+          <div>BubbleKnows.</div>
+        </div>
+      </div><!--
+   --><div class="fr-widget fr-html fr-wf fr_kubece ">
+        <form>
+          <font face="Microsoft YaHei" size="5" color="#f9fbfb">What do you want today:</font>
+          <input type="text" name="userInput">
+        </form>
+      </div><!--
+   -->
+<a href="result\index.html">
+   <div class="fr-widget fr-img fr_dijive "></div>
+    </div>
+
+
+
+  </div>
+  <div class="fr-copyright-footer fixed">
+    <div class="fr-widget fr-container">
+      <div class="fr-widget fr-text fr-wf fr-made-with-froont">
+        <a href="//bubbleknows.com" class="fr-text" target="_blank">
+        Developed by BubbleKnows Team <span class="heart">&hearts;</span> @ <b>HackPrinceton</b>
+      </a>
+      </div>
+    </div>
+    <div class="fr-bottom-em-spacer"></div>
+    <script type="text/javascript">
+      $(function() {
+        $(window).resize(function() {
+          var $footer = $('.fr-copyright-footer');
+          var $ref = $(document.getElementsByClassName('b-content')[0] || document.body)
+          $footer.removeClass('fixed');
+          if ($ref.height() + $footer.height() < window.innerHeight) {
+            $footer.addClass('fixed')
+          };
+        }).trigger('resize');
+      })
+    </script>
+  </div>
+  <div id="footer-assets">
+    <!--[if lt IE 9]>
+                    <script type="text/javascript" src="vendor/bower/respond/respond.src.js"></script>
+                    <script type="text/javascript" src="vendor/bower/raphael/raphael.js"></script>
+                    <script type="text/javascript" src="vendor/bower/raphael-svg-import-classic/raphael-svg-import.js"></script>
+                    <script type="text/javascript" src="js/raphaelize.js"></script>
+            <![endif]-->
+  </div>
+</body>
+
+</html>

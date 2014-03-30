@@ -1,0 +1,133 @@
+<html>  
+  <head>
+    <title>Freebase Suggest Example - Find topics of type /film/director (Movie Director)</title>
+    
+    <link href="http://www.gstatic.com/freebase/suggest/4_2/suggest.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.gstatic.com/freebase/suggest/4_2/suggest.min.js"></script>
+    
+        <style>
+      body {
+        font-family: Arial;
+      }
+      h1 {
+        font-size: 1.7em;
+      }
+      pre.prettyprint {
+        padding: 16px;
+        background: #eee;
+        min-width: 600px;
+        display: inline-block;
+      margin: 0;
+      }
+      #myinput {
+          padding: 0.3em 0.4em;
+      font-size: 1.1em;
+      margin: 0 0 20px;
+      width: 600px;
+      color: #36e;
+      border: 1px solid #ccc;
+      border-radius: 0.2em;
+    }
+      #myfilter {
+          padding: 0.3em 0.4em;
+      font-size: 1.1em;
+      margin: 0 0 20px;
+      width: 600px;
+      color: #36e;
+      border: 1px solid #ccc;
+      border-radius: 0.2em;
+    }
+        #related {
+        display: none;
+        }
+    #related ul {
+      padding: 0;
+      list-style-type: none;
+    }
+    #related li {
+      display: inline-block;
+      padding: 0 0 0 20px;
+      margin: 0.2em 0;
+      background-repeat: no-repeat;
+    }
+    .related_entity {
+      width: 80px;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 0.8em;
+      border: 1px solid #fff;
+      border-radius: 0.2em;
+      padding: 0.2em;
+    }
+    .related_entity:hover {
+      border-color: #ddd;
+    }
+    .related_entity img {
+      margin: 0 0 0.5em 0;
+    }
+    .related_entity a {
+      text-decoration: none;
+      color: black;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="body">
+      <p><strong>Collection filter:</strong></p>
+      <input id="myinput" type="text" value=""><br>
+      <input id="myfilter" type="text" value="">
+      <script type="text/javascript">
+
+  	$(function(){
+
+	   var baseSearch = function(searchVal, searchFilter) {
+          var search_service = 'https://www.googleapis.com/freebase/v1/search';
+          var params = {
+            'query': searchVal,
+            'filter': searchFilter,
+            'output': '(description)',
+            'limit': 10
+          };
+          $.getJSON(search_service + '?callback=?', params, function(response) {
+        $("#related ul").empty();
+              for (var i=0; i<response['result'].length; i++) {
+                var related_entity = response['result'][i];
+                var list_item = $('<li class="related_li"></li>');
+                var container = $('<div class="related_entity"></div>');
+                list_item.append(container);
+                container.append($('<img src="https://usercontent.googleapis.com/freebase/v1/image' + related_entity['mid'] + '">'));
+                container.append($('<br/><span ' + related_entity['mid'] + ' target="_blank">' + related_entity['name'] + '</span>'));
+                $("#related ul").append(list_item);
+              }
+              $("#related").show();
+          });
+	     };
+
+  
+  $("#related li").live('click',function(){
+    //console.log('click search!');
+    //console.log($(this).text()); 
+    baseSearch($(this).text(),$('#myfilter').val());
+  });
+
+	$("#myinput").change(function(){
+    baseSearch($('#myinput').val(),$('#myfilter').val());
+  });
+  
+  $("#myfilter").val("(all type:/common/topic)").change();
+  $("#myinput").val("cat").change();
+
+    console.log('baseSearch is called!');
+    baseSearch('cat');
+
+});
+
+      </script>
+      <div id="related">
+	    <p><strong>Related Entities:</strong></p>
+      <ul></ul>
+        </div>
+    </div>
+  
+</body></html>
